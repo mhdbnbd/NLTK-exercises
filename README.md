@@ -41,4 +41,4 @@ c) last two letters;
 d) length;
 e) for each letter one feature, which is true if the name contains the letter.
 Use the NaiveBayesClassifier, calculate the accuracy, and display the 10 most informative features.
-  Solution =>
+  Solution => gender_classifer.py
