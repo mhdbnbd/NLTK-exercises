@@ -22,6 +22,19 @@ def d_features(word):
     return {'word_length': len(word)}
 
 
+def e_features(word):
+    word = word.lower()
+    a = ord('a')
+    alphas = [chr(i) for i in range(a, a + 26)]
+    list_features = [0] * len(alphas)
+    letters = [word[i] for i in range(len(word))]
+    for alpha in alphas:
+        if alpha in letters:
+            list_features[alphas.index(alpha)] = 1
+    string_features = ''.join(map(str, list_features))
+    return {'word_letters': string_features}
+
+
 # labels for training/test
 labeled_names = ([(name, 'male') for name in names.words('male.txt')] +
                  [(name, 'female') for name in names.words('female.txt')])
@@ -39,5 +52,5 @@ def train(features):
     return {accuracy, most_informative}
 
 
-for f in [a_features, b_features, c_features, d_features]:
+for f in [a_features, b_features, c_features, d_features, e_features]:
     train(f)
