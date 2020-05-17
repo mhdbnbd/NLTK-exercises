@@ -7,15 +7,15 @@ from nltk.classify import apply_features
 
 
 def a_features(word):
-    return {'first_letter': word[0]}
+    return {'first_letter': word[0].lower()}
 
 
 def b_features(word):
-    return {'last_letter': word[-1]}
+    return {'last_letter': word[-1].lower()}
 
 
 def c_features(word):
-    return {'last_two_letters': word[-2:]}
+    return {'last_two_letters': word[-2:].lower()}
 
 
 def d_features(word):
