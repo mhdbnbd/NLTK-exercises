@@ -6,33 +6,19 @@ from nltk.classify import apply_features
 # features extractor
 
 
-def a_features(word):
-    return {'first_letter': word[0].lower()}
-
-
-def b_features(word):
-    return {'last_letter': word[-1].lower()}
-
-
-def c_features(word):
-    return {'last_two_letters': word[-2:].lower()}
-
-
-def d_features(word):
-    return {'word_length': len(word)}
-
-
-def e_features(word):
-    word = word.lower()
+def gender_features(name):
+    features = {'first_letter': name[0].lower(), 'last_letter': name[-1].lower(), 'last_two_letters': name[-2:].lower(),
+                'name_length': len(name)}
+    name = name.lower()
     a = ord('a')
     alphas = [chr(i) for i in range(a, a + 26)]
     list_features = [0] * len(alphas)
-    letters = [word[i] for i in range(len(word))]
+    letters = [name[i] for i in range(len(name))]
     for alpha in alphas:
         if alpha in letters:
             list_features[alphas.index(alpha)] = 1
-    string_features = ''.join(map(str, list_features))
-    return {'word_letters': string_features}
+    features['name_letters'] = ''.join(map(str, list_features))
+    return features
 
 
 # labels for training/test
@@ -52,5 +38,4 @@ def train(features):
     return {accuracy, most_informative}
 
 
-for f in [a_features, b_features, c_features, d_features, e_features]:
-    train(f)
+train(gender_features)
