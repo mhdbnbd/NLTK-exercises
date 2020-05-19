@@ -59,4 +59,13 @@ Use the preceding and following word as features. They can be calculated by retr
 position of the word “hard” as p=inst.position and then accessing inst.context[p-1]
 and inst.context[p+1].
 Run 10 iterations by reshuffling the instances and printing the individual accuracies.
-Finally, print the average accuracy. Solution =>
+Finally, print the average accuracy. Solution => **word_sense.py**
+
+The synonyms “strong” and “powerful” pattern differently. Use the tagged Brown corpus
+with the universal tagset to first list the nouns which follow “strong” vs. “powerful”. Write
+for this a function next_noun(word, tagged_text) which returns the list of nouns that
+follow word in the tagged_text. Build then a NaiveBayesClassifier that predicts when
+each word should be used by using the function apply_features and the following noun
+as single feature.
+Run 10 iterations by reshuffling the instances and printing the individual accuracies.
+Finally, print the average accuracy.. Solution =>
