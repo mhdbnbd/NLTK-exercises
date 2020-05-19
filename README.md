@@ -51,4 +51,12 @@ words to lowercase. Use the most common 5000 words as word_features in the funct
 document_features.
 Run 10 iterations by reshuffling the instances and printing the accuracy and 5 most
 informative features for each iteration. Finally, print the average accuracy.
-    Solution =>
+    Solution => **movie_reviews.py**
+
+The Senseval 2 Corpus contains data intended to train word-sense disambiguation classifiers. Using this dataset, build a NaiveBayesClassifier that predicts the correct sense
+tag for a given instance for the word “hard”.
+Use the preceding and following word as features. They can be calculated by retrieving the
+position of the word “hard” as p=inst.position and then accessing inst.context[p-1]
+and inst.context[p+1].
+Run 10 iterations by reshuffling the instances and printing the individual accuracies.
+Finally, print the average accuracy. Solution =>
