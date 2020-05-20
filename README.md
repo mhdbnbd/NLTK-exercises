@@ -59,7 +59,8 @@ Use the preceding and following word as features. They can be calculated by retr
 position of the word “hard” as p=inst.position and then accessing inst.context[p-1]
 and inst.context[p+1].
 Run 10 iterations by reshuffling the instances and printing the individual accuracies.
-Finally, print the average accuracy. Solution => **word_sense.py**
+Finally, print the average accuracy. 
+    Solution => **word_sense.py**
 
 The synonyms “strong” and “powerful” pattern differently. Use the tagged Brown corpus
 with the universal tagset to first list the nouns which follow “strong” vs. “powerful”. Write
@@ -68,4 +69,18 @@ follow word in the tagged_text. Build then a NaiveBayesClassifier that predicts 
 each word should be used by using the function apply_features and the following noun
 as single feature.
 Run 10 iterations by reshuffling the instances and printing the individual accuracies.
-Finally, print the average accuracy.. Solution =>
+Finally, print the average accuracy.. 
+    Solution => **strong_vs_powerful**
+    
+The PP Attachment Corpus is a corpus describing prepositional phrase attachment decisions. Each instance in the training corpus is encoded as a PPAttachment object
+In the same way, ppattach.attachments(’test’) accesses the test instances. Select
+only the instances where inst.attachment is ’N’
+Using this sub-corpus, build a NaiveBayesClassifier that attempts to predict which
+preposition is used to connect a given pair of nouns. For example, given the pair of nouns
+“team” and “researchers”, the classifier should predict the preposition “of”.
+Write for this purpose a function prepare_featuresets(subcorpus), where subcorpus
+is either the string “training” or “test” to return the training set or the test set.
+Print the achieved accuracy as well as the result of classifier.classify({’noun1’:
+’team’, ’noun2’: ’researchers’}).
+    Solution => 
+
