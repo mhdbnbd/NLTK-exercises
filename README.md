@@ -29,8 +29,7 @@ Write a function word freq() that takes a word and the name of a Brown Corpus ge
 as arguments, and computes the frequency of the word in that section of the corpus. Use
 the function to compute the frequency of “love” in “news” vs. “romance” genre.
     Solution => **word_freq_genre.py**
-  
-  
+    
 II. Learning to Classify Text
 
 Write a name gender classifier using the Names Corpus, the apply_features function,
@@ -70,17 +69,13 @@ each word should be used by using the function apply_features and the following 
 as single feature.
 Run 10 iterations by reshuffling the instances and printing the individual accuracies.
 Finally, print the average accuracy.. 
-    Solution => **strong_vs_powerful**
+    Solution => **strong_vs_powerful.py**
     
-The PP Attachment Corpus is a corpus describing prepositional phrase attachment decisions. Each instance in the training corpus is encoded as a PPAttachment object
-In the same way, ppattach.attachments(’test’) accesses the test instances. Select
-only the instances where inst.attachment is ’N’
-Using this sub-corpus, build a NaiveBayesClassifier that attempts to predict which
-preposition is used to connect a given pair of nouns. For example, given the pair of nouns
-“team” and “researchers”, the classifier should predict the preposition “of”.
-Write for this purpose a function prepare_featuresets(subcorpus), where subcorpus
-is either the string “training” or “test” to return the training set or the test set.
-Print the achieved accuracy as well as the result of classifier.classify({’noun1’:
-’team’, ’noun2’: ’researchers’}).
-    Solution => 
+III. Extracting Information from Text
 
+Extend the chunk grammar for the NP-chunker in [chunker](http://www.nltk.org/book/pylisting/code_chunkex.py) 
+to also match noun phrases containing plural head nouns. Test your grammar with the following sentences:
+(S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
+(S (NP two/CD dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
+(S (NP both/DT new/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
+    Solution =>
