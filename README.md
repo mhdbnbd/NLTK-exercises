@@ -78,4 +78,4 @@ to also match noun phrases containing plural head nouns. Test your grammar with 
 (S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
 (S (NP two/CD dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
 (S (NP both/DT new/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
-    Solution =>
+    Solution => **chunker_phn.py**
