@@ -73,7 +73,7 @@ Finally, print the average accuracy..
     
 III. Extracting Information from Text
 
-Extend the chunk grammar for the NP-chunker in [chunker](http://www.nltk.org/book/pylisting/code_chunkex.py) 
+Extend the chunk grammar for the NP-chunker in [chunker](http://www.nltk.org/book/ch07.html#code-chunkex) 
 to also match noun phrases containing plural head nouns. Test your grammar with the following sentences:
 (S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
 (S (NP two/CD dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
