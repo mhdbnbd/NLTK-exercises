@@ -2,6 +2,7 @@
   <dictionary name="mhd">
     <words>
       <w>bigrams</w>
+      <w>infcl</w>
       <w>nattach</w>
       <w>nnattach</w>
       <w>subcorpus</w>

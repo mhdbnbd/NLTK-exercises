@@ -73,7 +73,8 @@ Finally, print the average accuracy..
     
 III. Extracting Information from Text
 
-Extend a chunk grammar to match noun phrases containing plural head nouns. Test your grammar with the following sentences:
+Extend a chunk grammar to match noun phrases containing plural head nouns. Test your grammar with the following
+sentences:<br/>
 ("many", "JJ"), ("dogs", "NNS"), ("barked", "VBD"), ("at", "IN"), ("the", "DT"), ("cat", "NN")<br/>
 =: (S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))<br/>
 ("two", "CD"), ("dogs", "NNS"), ("barked", "VBD"), ("at", "IN"), ("the", "DT"), ("cat", "NN")<br/>
@@ -82,7 +83,7 @@ Extend a chunk grammar to match noun phrases containing plural head nouns. Test 
 =: (S (NP both/DT new/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))<br/>
     Solution => **chunker_phn.py**
 
-Extend a chunk grammar to match noun phrases containing gerunds. Test your grammar with the following sentences:
+Extend a chunk grammar to match noun phrases containing gerunds. Test your grammar with the following sentences:<br/>
 ("many", "JJ"), ("dogs", "NNS"), ("barked", "VBD"), ("at", "IN"), ("the", "DT"), ("meowing", "VBG"), ("cat", "NN")<br/>
 =: (S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT meowing/VBG cat/NN))<br/>
 ("the", "DT"), ("man", "NN"), ("wants", "VBZ"), ("to", "TO"), ("become", "VB"), ("assistant", "NN"), ("managing", "VBG"), 
@@ -104,3 +105,16 @@ the following sentences and the sentences from **chunker_phn.py** and **chunker_
 =: (S (NP company/NN personnel/NN policy/NN) has/VBZ always/RB been/VBN (NP the/DT law/NN) that/WDT rules/VBZ 
 (NP company/NN courts/NN and/CC adjudicators/NNS))<br/>
     Solution => **chunker_cc.py**
+    
+Extend the chunk grammar from **chunker_phn.py** to a multi-stage chunk grammar for a cascaded
+chunker that produces the following output for the three test sentences:
+(S
+(NP many/JJ dogs/NNS)
+(VP barked/VBD (PP at/IN (NP the/DT cat/NN))))<br/>
+(S
+(NP two/CD dogs/NNS)
+(VP barked/VBD (PP at/IN (NP the/DT cat/NN))))<br/>
+(S
+(NP both/DT new/JJ dogs/NNS)
+(VP barked/VBD (PP at/IN (NP the/DT cat/NN))))<br/>
+    Solution => **ms_chunker_phn.py**
