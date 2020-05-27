@@ -73,9 +73,34 @@ Finally, print the average accuracy..
     
 III. Extracting Information from Text
 
-Extend the chunk grammar for the NP-chunker in [chunker](http://www.nltk.org/book/ch07.html#code-chunkex) 
-to also match noun phrases containing plural head nouns. Test your grammar with the following sentences:
-(S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
-(S (NP two/CD dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
-(S (NP both/DT new/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))
+Extend a chunk grammar to match noun phrases containing plural head nouns. Test your grammar with the following sentences:
+("many", "JJ"), ("dogs", "NNS"), ("barked", "VBD"), ("at", "IN"), ("the", "DT"), ("cat", "NN")<br/>
+=: (S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))<br/>
+("two", "CD"), ("dogs", "NNS"), ("barked", "VBD"), ("at", "IN"), ("the", "DT"), ("cat", "NN")<br/>
+=: (S (NP two/CD dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))<br/>
+("both", "DT"), ("new", "JJ"), ("dogs", "NNS"), ("barked", "VBD"), ("at", "IN"), ("the", "DT"), ("cat", "NN")<br/>
+=: (S (NP both/DT new/JJ dogs/NNS) barked/VBD at/IN (NP the/DT cat/NN))<br/>
     Solution => **chunker_phn.py**
+
+Extend a chunk grammar to match noun phrases containing gerunds. Test your grammar with the following sentences:
+("many", "JJ"), ("dogs", "NNS"), ("barked", "VBD"), ("at", "IN"), ("the", "DT"), ("meowing", "VBG"), ("cat", "NN")<br/>
+=: (S (NP many/JJ dogs/NNS) barked/VBD at/IN (NP the/DT meowing/VBG cat/NN))<br/>
+("the", "DT"), ("man", "NN"), ("wants", "VBZ"), ("to", "TO"), ("become", "VB"), ("assistant", "NN"), ("managing", "VBG"), 
+("director", "NN")<br/>
+=: (S (NP the/DT man/NN) wants/VBZ to/TO become/VB (NP assistant/NN managing/VBG director/NN))<br/>
+    Solution => **chunker_gerunds.py**
+    
+Extend the grammar from **chunker_gerunds.py** to also handle coordinated noun phrases. Test your grammar with
+the following sentences and the sentences from **chunker_phn.py** and **chunker_gerunds.py**:
+("the", "DT"), ("man", "NN"), ("wants", "VBZ"), ("to", "TO"), ("leave", "VB"), ("in", "IN"), ("July", "NNP"), 
+("or", "CC"), ("August", "NNP")<br/>
+=: (S (NP the/DT man/NN) wants/VBZ to/TO leave/VB in/IN (NP July/NNP or/CC August/NNP))<br/>
+("Donald", "NNP"), ("fired", "VBD"), ("all", "PDT"), ("your", "PRP$"), ("managers", "NNS"), ("and", "CC"), 
+("supervisors", "NNS")<br/>
+=: (S (NP Donald/NNP) fired/VBD (NP all/PDT your/PRP$ managers/NNS and/CC supervisors/NNS))<br/>
+("company", "NN"), ("personnel", "NN"), ("policy", "NN"), ("has", "VBZ"), ("always", "RB"), ("been", "VBN"), 
+("the", "DT"), ("law", "NN"), ("that", "WDT"), ("rules", "VBZ"), ("company", "NN"), ("courts", "NN"), ("and", "CC"), 
+("adjudicators", "NNS")<br/>
+=: (S (NP company/NN personnel/NN policy/NN) has/VBZ always/RB been/VBN (NP the/DT law/NN) that/WDT rules/VBZ 
+(NP company/NN courts/NN and/CC adjudicators/NNS))<br/>
+    Solution => **chunker_cc.py**
