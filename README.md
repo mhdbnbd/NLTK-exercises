@@ -118,3 +118,16 @@ chunker that produces the following output for the three test sentences:
 (NP both/DT new/JJ dogs/NNS)
 (VP barked/VBD (PP at/IN (NP the/DT cat/NN))))<br/>
     Solution => **ms_chunker_phn.py**
+
+Extend the multi-stage chunk grammar from **ms_chunker_phn.py** to also cover the test sentences
+from **chunker_gerunds.py**:<br/>
+(S
+(NP many/JJ dogs/NNS)
+(VP barked/VBD (PP at/IN (NP the/DT meowing/VBG cat/NN))))<br/>
+(S
+(NP the/DT man/NN)
+(VP
+wants/VBZ
+(INFCL
+to/TO
+(VP become/VB (NP assistant/NN managing/VBG director/NN)))))
